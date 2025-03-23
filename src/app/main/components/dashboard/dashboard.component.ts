@@ -1,12 +1,13 @@
 import { Component, OnInit,Renderer2 } from '@angular/core';
 import WOW from 'wow.js';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Tab } from 'bootstrap';
 
 declare var $: any;  // Declaring jQuery
 
 import { NgOptimizedImage } from '@angular/common';@Component({
   selector: 'app-dashboard',
-  imports: [NgOptimizedImage],
+  imports: [],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -70,6 +71,17 @@ export class DashboardComponent {
       }
     
       return true; // ✅ Added to cover all paths
+    });
+
+    this.route.fragment.subscribe(fragment => {
+      if (fragment) {
+        // Find the correct tab link
+        const tabElement = document.querySelector(`.nav-link[href="#${fragment}"]`);
+        if (tabElement) {
+          // Activate the corresponding tab
+          new Tab(tabElement).show();
+        }
+      }
     });
     
   }

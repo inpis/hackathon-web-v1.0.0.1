@@ -618,9 +618,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #schedule .nav-tabs {
-  text-align: center;
   margin: auto;
-  display: block;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
   border-bottom: 0;
   margin-bottom: 30px;
 }
